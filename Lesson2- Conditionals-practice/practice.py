@@ -8,11 +8,22 @@ if age: #validate
     if rating == "G":
         print("APPROVED: You can watch this movie")
         
-    elif rating == "PG" and age >= 13:
+    elif rating == "PG" and age >= 6:
         print("APPROVED: You can watch this movie")
         
+    elif rating == "PG-13" and age >= 13:
+        print(f"APPROVED: You can watch a {rating} movie")
+        
     else: 
-        print("")
+        print("WARNING: Not recomended for your age")
+        
+    if rating == "R" and age > 17:
+        print("APPROVED: You can watch this movie")
+        
+    else:
+        print("DENIED: must be 17+ for R-rated movies")
+        
+
         
     
 else: 
