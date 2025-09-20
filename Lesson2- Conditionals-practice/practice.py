@@ -6,7 +6,7 @@ if age: #validate
     rating = input("Input a movie rating (G, PG, PG-13, R): ")
     if rating == "G":
         print("APPROVED: You can watch this movie")
-        
+         
     elif rating == "PG":
         if age >= 6:
             print("APPROVED: You can watch this movie")
