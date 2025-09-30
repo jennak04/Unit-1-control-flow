@@ -52,20 +52,23 @@ print(f"Special Characters: {'PASSED' if special_characters > 0 else 'FAILED'}")
 print("")
 print("SECURITY ISSUES")
 for i in range(len(user_password) - 2):
-    if ord(user_password[i+1]) == ord(user_password[i]) + 1 and ord(user_password[i+2]) == ord(user_password[i]) + 2:
-        print(f"Contains sequence: {user_password[i:i+3]}")
+    if (ord(user_password[i+1]) == ord(user_password[i]) + 1 and
+        ord(user_password[i+2]) == ord(user_password[i]) + 2):
         sequence = True
-        
-    else:
-        print("Does not contain sequence")
-        
+        print(f"Contains sequence: {user_password[i:i+3]}")
+        break
+
+if not sequence:
+    print("Does not contain sequence")
+
 for i in range(len(user_password) - 2):
     if user_password[i] == user_password[i+1] == user_password[i+2]:
-        print(f"Repeated Characters: {user_password[i]}")
         repeat_chars = True
-        
-    else:
-        print("No Repeated Characters")
+        print(f"Repeated Characters: {user_password[i]}")
+        break
+
+if not repeat_chars:
+    print("No Repeated Characters")
 
 if (len(user_password) > 8 and
     uppercase_letters > 0 and
