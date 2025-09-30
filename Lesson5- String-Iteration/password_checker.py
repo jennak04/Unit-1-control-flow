@@ -3,6 +3,8 @@ lowercase_letters = 0
 digits = 0
 special_characters = 0
 letter_count = 0
+sequence = False
+repeat_chars = False
 
 
 user_password = input("Enter a password: ")
@@ -48,7 +50,35 @@ print(f"Digits: {'PASSED' if digits > 0 else 'FAILED'}")
 print(f"Special Characters: {'PASSED' if special_characters > 0 else 'FAILED'}")
 
 print("")
+print("SECURITY ISSUES")
+for i in range(len(user_password) - 2):
+    if ord(user_password[i+1]) == ord(user_password[i]) + 1 and ord(user_password[i+2]) == ord(user_password[i]) + 2:
+        print(f"Contains sequence: {user_password[i:i+3]}")
+        sequence = True
+        
+    else:
+        print("Does not contain sequence")
+        
+for i in range(len(user_password) - 2):
+    if user_password[i] == user_password[i+1] == user_password[i+2]:
+        print(f"Repeated Characters: {user_password[i]}")
+        repeat_chars = True
+        
+    else:
+        print("No Repeated Characters")
 
-rating = ('STRONG' if 'PASSED' else 'WEAK')
+if (len(user_password) > 8 and
+    uppercase_letters > 0 and
+    lowercase_letters > 0 and
+    digits > 0 and
+    special_characters > 0 and
+    not sequence and
+    not repeat_chars):
+    rating = "STRONG"
+elif (len(user_password) < 8 and (sequence or repeat_chars)):
+    rating = "WEAK"
+else:
+    rating = "MEDIUM"
+
 print(f"FINAL RATING: {rating}")
 
