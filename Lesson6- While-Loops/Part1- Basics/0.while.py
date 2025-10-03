@@ -39,7 +39,7 @@ print()
 # Sum of digits
 # take a user input as int, and sum the digits of it
 
-user_num = input("Enter a number: ") #1234
+# user_num = input("Enter a number: ") #1234
 sum = 0
 #for char in user_num:
    # print(f"{char} {type(char)}")
@@ -48,10 +48,36 @@ sum = 0
 #print(f"\nTotal {sum}")
 
 i=0
-while i < len(user_num):
-    sum += int(user_num[i])
-    i += 1
-print(sum)
+# while i < len(user_num):
+  #  sum += int(user_num[i])
+   # i += 1
+#print(sum)
+
+
+# Algorithmn sum of digits
+n = int(input("Enter a number: "))
+number = n
+sum = 0
+while number > 0:
+    digit = number % 10   # get the last digit
+    sum += digit   # add to sum
+    number = number // 10 # removing the last digits
+    
+print(f"The sum of digits {n}: {sum}")
+
+
+# Algorithmn - count digits (as ints)
+# number = int(input("Enter a number"))
+n = 54321
+numer = n
+count = 0
+
+while numer > 0:
+    count += 1
+    numer = numer //10 #remove the last digit
+
+print(f"The Number {n} has {count} digits")
+
     
     
 
